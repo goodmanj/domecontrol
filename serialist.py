@@ -39,6 +39,15 @@ class Serialist(list):
             device anyway."""
             print(glob.glob('/dev/cu.*'))
             list.__init__(self,glob.glob('/dev/cu.*'))
+
+        elif (plat == 'Linux'):
+            """Linux also has lots of useless /dev/tty*'s, but the 
+            /dev/ttyUSB*'s seem to represent real devices."""
+            print(glob.glob('/dev/ttyUSB*'))
+            list.__init__(self,glob.glob('/dev/ttyUSB*'))
+                    
                     
         """Only Windows and Mac for now.  Linux should be the same as Mac,
-        but I haven't tested it yet."""
+        but I haven't tested it yet.
+	2016-Jun-98 (DM): added linux support, assuming ttyUSB*
+	"""
